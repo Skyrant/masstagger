@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Masstagger Options</title>
+    <style type="text/css">
+	ul{
+		height:100%;
+	}
+	body, html {
+		height:100%
+	}
+	body{
+		padding:15px;
+	}
+	#sortables{
+	    display: table;
+		overflow-x:hidden;
+	}
+	.row{
+		width:100%;
+	}
+	.connectedSortable{
+		background-color:#d3d3d3;
+		border-radius:20px;
+		padding: 10px;
+		list-style-type:none;
+		overflow-y: scroll;	
+		height:90%;
+	}
+	.ui-state-default{
+		margin: 0 3px 3px 3px; 
+		padding: 0.4em; 
+		padding-left: 1.5em; 
+		border: 1px solid #c5c5c5;
+		border-radius:10px;
+		background: #f6f6f6;
+		font-weight: normal;
+		color: #454545;
+	}
+	.ui-dialog-titlebar-close {
+		visibility: hidden;
+	}
+	#whitelistUsers{
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+	.flex-fill {
+		flex:1;
+	}
+	.draggable{
+		display:inline-block;
+		vertical-align: middle;
+		background-image: url(icons/draggable.png);
+		background-size: contain;
+		width: 16px;
+		height: 16px;
+	}
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="lib/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/jquery-ui.css">
+
+  </head>
+
+	<body>
+		<div class="container-fluid h-100 d-flex flex-column">
+			<div id="errorDialog" title="Error">
+				<p>There was an issue contacting the server</p>
+			</div>
+			<div id="whitelistDialog" title="Whitelist">
+				<input type="text" id='whitelistTxtBx'>
+				<button id="addUserButton" class="float-right">Add User</button>
+				<div id="whitelistUsers"></div>
+			</div>
+			<div id="debugDialog" title="Debug info">
+				<div class="row">
+					<textarea id="logWindow" rows="20" cols="60" readonly style="margin-left:25px;"></textarea>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<button id="clearLog">Clear Log</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label for="spinner">Minimum posts:</label>
+					<input type="number" id="minPosts" min="1">
+				</div>
+				<div class="col-md-4 text-center">
+					<button id="whitelistButton">Whitelist</button>
+				</div>
+				<div class="col-md-4 text-center">
+					<label for="default_picker">Default Sub Color:</label>
+					<input type="color" id="default_picker" class="picker" value="#ff0000">
+				</div>
+			</div>
+			<div id="sortables" class="row flex-fill d-flex">
+				<div class="row flex-fill d-flex">
+					<div class="col-md-6">
+						<p class="text-center">Tagging</p>
+						<ul id="tagging" class="connectedSortable">
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<p class="text-center">Not Tagging</p>
+						<ul id="ntagging" class="connectedSortable">
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="padding-top:7px; padding-bottom:20px;">
+				<div class="col-md-4 text-center">
+					<a href="https://ko-fi.com/H2H0FO9F" target="_blank"><img src="icons/kofi.png" height="30" style="padding-bottom:1px;"></a>
+				</div>
+				<div class="col-md-4 text-center">
+					<button id="save">Save</button>
+				</div>
+				<div class="col-md-4 text-center">
+					<button id="debug">Debug</button>
+				</div>
+			</div>
+		</div>
+		<script src="lib/jquery.js"></script>
+		<script src="lib/jquery-ui.js"></script>
+		<script src="lib/popper.js"></script>
+		<script src="lib/bootstrap.js"></script>
+		<script src="options.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,35 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "browser_style": true,
+      "default_icon": {
+         "16": "icons/icon-16.png",
+         "48": "icons/icon-48.png"
+      }
+   },
+   "content_scripts": [ {
+      "js": [ "lib/jquery.js", "masstagger.js" ],
+      "matches": [ "http://*.reddit.com/*", "https://*.reddit.com/*" ]
+   }, {
+      "css": [ "lib/jquery-ui.css" ],
+      "js": [ "lib/jquery.js", "lib/jquery-ui.js", "whitelist.js" ],
+      "matches": [ "http://*.masstagger.com/user/*", "https://*.masstagger.com/user/*" ]
+   } ],
+   "description": "This extension will identify far-right users on reddit.com",
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA51UUIj7mfP+4J3vks9UynFJlM1xCb2OYUXfYiC2fjYNOUKNtQTOWop1nbcL0bkqBZ12ozE0QHLnAMpREMt2lUHAJRjZKCozkqGR1/tASl/GKjrtoQdRHczO9gyz83G7LnFWQH46IWd2R6Wbh2lloyB1uF46B0XUfgWtS1fneH+T1g/N6/xXb4SbziBMVRB2GQ1n3YMTSvX0dKsujRK8iWXG6u3/vsUp5ctd6BGOtTHaicRvLFrqo9XAX60ZWzxnPEnne/G92RKX5onBEtZ7vN7q2Z0xukICOoAOHNbbUqrWSEH9fFNZh+KU1jQsdJBQzKcSEFprBgFposD6jIWOH+wIDAQAB",
+   "manifest_version": 2,
+   "name": "Reddit Masstagger",
+   "options_page": "options.html",
+   "permissions": [ "storage", "http://*.reddit.com/*", "https://*.reddit.com/*", "http://masstagger.com/", "https://masstagger.com/" ],
+   "short_name": "Masstagger",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.2.3"
+}
